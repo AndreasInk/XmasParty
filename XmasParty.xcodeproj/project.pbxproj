@@ -42,6 +42,8 @@
 		E1255211275197FD005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E125520C275197FD005B416E /* Assets.xcassets */; };
 		E1255212275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
 		E1255213275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
+		E12552152751988C005B416E /* Experiments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12552142751988C005B416E /* Experiments.swift */; };
+		E12552162751988C005B416E /* Experiments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12552142751988C005B416E /* Experiments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,7 @@
 		E125520A275197FD005B416E /* SnowFall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnowFall.swift; sourceTree = "<group>"; };
 		E125520C275197FD005B416E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E125520D275197FD005B416E /* SnowFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall.sks; sourceTree = "<group>"; };
+		E12552142751988C005B416E /* Experiments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experiments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 				E12551C527518AC8005B416E /* XmasPartyApp.swift */,
 				E12551C627518AC8005B416E /* ContentView.swift */,
 				E125520727519275005B416E /* HomeView.swift */,
+				E12552142751988C005B416E /* Experiments.swift */,
 				E125520A275197FD005B416E /* SnowFall.swift */,
 				E125520B275197FD005B416E /* SpriteFiles */,
 				E12551F22751909C005B416E /* ViewManager.swift */,
@@ -279,6 +283,7 @@
 				E12551EA27518BFA005B416E /* XmasData.swift in Sources */,
 				E1255205275191CB005B416E /* ColorExt.swift in Sources */,
 				E125520827519275005B416E /* HomeView.swift in Sources */,
+				E12552152751988C005B416E /* Experiments.swift in Sources */,
 				E1255201275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D727518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F6275190F5005B416E /* TeamCreatorView.swift in Sources */,
@@ -300,6 +305,7 @@
 				E12551EB27518BFA005B416E /* XmasData.swift in Sources */,
 				E1255206275191CB005B416E /* ColorExt.swift in Sources */,
 				E125520927519275005B416E /* HomeView.swift in Sources */,
+				E12552162751988C005B416E /* Experiments.swift in Sources */,
 				E1255202275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D827518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F7275190F5005B416E /* TeamCreatorView.swift in Sources */,

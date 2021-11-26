@@ -50,9 +50,10 @@ class XmasManager: ObservableObject {
     func readyUp(team: Team) {
         if let i = find(value: team, in: localBrain.teams) {
             localBrain.teams[i].isReady = true
-            sync(localBrain)
+            
             if localBrain.teams.filter({$0.isReady}).count == localBrain.teams.count {
                 mostVotedGame = TrainingType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .Matching
+                sync(localBrain)
             }
         }
         
