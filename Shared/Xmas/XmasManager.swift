@@ -100,6 +100,7 @@ class XmasManager: ObservableObject {
             sync(localBrain)
         }
     }
+    
     func sync(_ bigBrain: XmasData) {
         
         
