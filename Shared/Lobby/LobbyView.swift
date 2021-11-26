@@ -14,6 +14,7 @@ struct LobbyView: View {
     @ObservedObject var xmas: XmasManager
     @StateObject var team = TeamManager()
     @State var alreadyVoted = false
+    
     @ObservedObject var viewManager: ViewManager
     var body: some View {
         ZStack {
@@ -103,17 +104,20 @@ struct LobbyView: View {
             } .padding()
                     .frame(minWidth: 300, maxWidth: 500, minHeight: 500, alignment: .center)
             } else {
-           
+                if let team =  xmas.yourTeam {
+                  if  !team.isReady {
             Button(action: {
                 if let team =  xmas.yourTeam {
                     xmas.readyUp(team: team)
                     xmas.sync(xmas.localBrain)
+                    
                 }
                     }) {
             
                 Text("Ready")
             } .buttonStyle(PopButtonStyle())
-        
+                }
+                }
         }
         }  .padding()
         .sheet(isPresented: $xmas.needsToCreatedTeam) {

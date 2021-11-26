@@ -9,4 +9,5 @@ import SwiftUI
 
 class ViewManager: ObservableObject {
     @Published var currentGame: Training?
+    
 }
