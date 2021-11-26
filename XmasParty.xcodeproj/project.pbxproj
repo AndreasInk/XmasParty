@@ -13,6 +13,13 @@
 		E12551D827518ACA005B416E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551C627518AC8005B416E /* ContentView.swift */; };
 		E12551D927518ACA005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12551C727518ACA005B416E /* Assets.xcassets */; };
 		E12551DA27518ACA005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12551C727518ACA005B416E /* Assets.xcassets */; };
+		E12551E427518BB7005B416E /* XmasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E327518BB7005B416E /* XmasManager.swift */; };
+		E12551E527518BB7005B416E /* XmasManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E327518BB7005B416E /* XmasManager.swift */; };
+		E12551E727518BD2005B416E /* Xmas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E627518BD2005B416E /* Xmas.swift */; };
+		E12551E827518BD2005B416E /* Xmas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E627518BD2005B416E /* Xmas.swift */; };
+		E12551EA27518BFA005B416E /* XmasData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E927518BFA005B416E /* XmasData.swift */; };
+		E12551EB27518BFA005B416E /* XmasData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E927518BFA005B416E /* XmasData.swift */; };
+		E12551EE27518C2E005B416E /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = E12551ED27518C2E005B416E /* SFSafeSymbols */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,9 @@
 		E12551CC27518ACA005B416E /* XmasParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XmasParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12551D227518ACA005B416E /* XmasParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XmasParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12551D427518ACA005B416E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E12551E327518BB7005B416E /* XmasManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmasManager.swift; sourceTree = "<group>"; };
+		E12551E627518BD2005B416E /* Xmas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xmas.swift; sourceTree = "<group>"; };
+		E12551E927518BFA005B416E /* XmasData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmasData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12551EE27518C2E005B416E /* SFSafeSymbols in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +67,9 @@
 			children = (
 				E12551C527518AC8005B416E /* XmasPartyApp.swift */,
 				E12551C627518AC8005B416E /* ContentView.swift */,
+				E12551E327518BB7005B416E /* XmasManager.swift */,
+				E12551E627518BD2005B416E /* Xmas.swift */,
+				E12551E927518BFA005B416E /* XmasData.swift */,
 				E12551C727518ACA005B416E /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -94,6 +108,9 @@
 			dependencies = (
 			);
 			name = "XmasParty (iOS)";
+			packageProductDependencies = (
+				E12551ED27518C2E005B416E /* SFSafeSymbols */,
+			);
 			productName = "XmasParty (iOS)";
 			productReference = E12551CC27518ACA005B416E /* XmasParty.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +159,9 @@
 				Base,
 			);
 			mainGroup = E12551BF27518AC8005B416E;
+			packageReferences = (
+				E12551EC27518C2D005B416E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+			);
 			productRefGroup = E12551CD27518ACA005B416E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,7 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12551EA27518BFA005B416E /* XmasData.swift in Sources */,
 				E12551D727518ACA005B416E /* ContentView.swift in Sources */,
+				E12551E427518BB7005B416E /* XmasManager.swift in Sources */,
+				E12551E727518BD2005B416E /* Xmas.swift in Sources */,
 				E12551D527518ACA005B416E /* XmasPartyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12551EB27518BFA005B416E /* XmasData.swift in Sources */,
 				E12551D827518ACA005B416E /* ContentView.swift in Sources */,
+				E12551E527518BB7005B416E /* XmasManager.swift in Sources */,
+				E12551E827518BD2005B416E /* Xmas.swift in Sources */,
 				E12551D627518ACA005B416E /* XmasPartyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E12551EC27518C2D005B416E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/piknotech/SFSafeSymbols.git";
+			requirement = {
+				branch = stable;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E12551ED27518C2E005B416E /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12551EC27518C2D005B416E /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E12551C027518AC8005B416E /* Project object */;
 }
