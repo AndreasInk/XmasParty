@@ -20,6 +20,22 @@
 		E12551EA27518BFA005B416E /* XmasData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E927518BFA005B416E /* XmasData.swift */; };
 		E12551EB27518BFA005B416E /* XmasData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551E927518BFA005B416E /* XmasData.swift */; };
 		E12551EE27518C2E005B416E /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = E12551ED27518C2E005B416E /* SFSafeSymbols */; };
+		E12551F02751905B005B416E /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551EF2751905B005B416E /* LobbyView.swift */; };
+		E12551F12751905B005B416E /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551EF2751905B005B416E /* LobbyView.swift */; };
+		E12551F32751909C005B416E /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551F22751909C005B416E /* ViewManager.swift */; };
+		E12551F42751909C005B416E /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551F22751909C005B416E /* ViewManager.swift */; };
+		E12551F6275190F5005B416E /* TeamCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551F5275190F5005B416E /* TeamCreatorView.swift */; };
+		E12551F7275190F5005B416E /* TeamCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551F5275190F5005B416E /* TeamCreatorView.swift */; };
+		E12551FB2751915F005B416E /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551FA2751915E005B416E /* TeamManager.swift */; };
+		E12551FC2751915F005B416E /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551FA2751915E005B416E /* TeamManager.swift */; };
+		E12551FE27519193005B416E /* PopButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551FD27519193005B416E /* PopButtonStyle.swift */; };
+		E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551FD27519193005B416E /* PopButtonStyle.swift */; };
+		E1255201275191A9005B416E /* Box3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255200275191A9005B416E /* Box3DView.swift */; };
+		E1255202275191A9005B416E /* Box3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255200275191A9005B416E /* Box3DView.swift */; };
+		E1255205275191CB005B416E /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255204275191CB005B416E /* ColorExt.swift */; };
+		E1255206275191CB005B416E /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255204275191CB005B416E /* ColorExt.swift */; };
+		E125520827519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
+		E125520927519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +48,14 @@
 		E12551E327518BB7005B416E /* XmasManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmasManager.swift; sourceTree = "<group>"; };
 		E12551E627518BD2005B416E /* Xmas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xmas.swift; sourceTree = "<group>"; };
 		E12551E927518BFA005B416E /* XmasData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmasData.swift; sourceTree = "<group>"; };
+		E12551EF2751905B005B416E /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
+		E12551F22751909C005B416E /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		E12551F5275190F5005B416E /* TeamCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreatorView.swift; sourceTree = "<group>"; };
+		E12551FA2751915E005B416E /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
+		E12551FD27519193005B416E /* PopButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopButtonStyle.swift; sourceTree = "<group>"; };
+		E1255200275191A9005B416E /* Box3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box3DView.swift; sourceTree = "<group>"; };
+		E1255204275191CB005B416E /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		E125520727519275005B416E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +91,13 @@
 			children = (
 				E12551C527518AC8005B416E /* XmasPartyApp.swift */,
 				E12551C627518AC8005B416E /* ContentView.swift */,
-				E12551E327518BB7005B416E /* XmasManager.swift */,
-				E12551E627518BD2005B416E /* Xmas.swift */,
-				E12551E927518BFA005B416E /* XmasData.swift */,
+				E125520727519275005B416E /* HomeView.swift */,
+				E12551F22751909C005B416E /* ViewManager.swift */,
+				E12551FA2751915E005B416E /* TeamManager.swift */,
+				E1255204275191CB005B416E /* ColorExt.swift */,
+				E1255203275191B5005B416E /* ButtonStyles */,
+				E12551F92751914B005B416E /* Lobby */,
+				E12551F827519140005B416E /* Xmas */,
 				E12551C727518ACA005B416E /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -90,6 +118,34 @@
 				E12551D427518ACA005B416E /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		E12551F827519140005B416E /* Xmas */ = {
+			isa = PBXGroup;
+			children = (
+				E12551E327518BB7005B416E /* XmasManager.swift */,
+				E12551E627518BD2005B416E /* Xmas.swift */,
+				E12551E927518BFA005B416E /* XmasData.swift */,
+			);
+			path = Xmas;
+			sourceTree = "<group>";
+		};
+		E12551F92751914B005B416E /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				E12551EF2751905B005B416E /* LobbyView.swift */,
+				E12551F5275190F5005B416E /* TeamCreatorView.swift */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		E1255203275191B5005B416E /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				E12551FD27519193005B416E /* PopButtonStyle.swift */,
+				E1255200275191A9005B416E /* Box3DView.swift */,
+			);
+			path = ButtonStyles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,10 +253,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12551EA27518BFA005B416E /* XmasData.swift in Sources */,
+				E1255205275191CB005B416E /* ColorExt.swift in Sources */,
+				E125520827519275005B416E /* HomeView.swift in Sources */,
+				E1255201275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D727518ACA005B416E /* ContentView.swift in Sources */,
+				E12551F6275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E427518BB7005B416E /* XmasManager.swift in Sources */,
 				E12551E727518BD2005B416E /* Xmas.swift in Sources */,
+				E12551FE27519193005B416E /* PopButtonStyle.swift in Sources */,
+				E12551FB2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D527518ACA005B416E /* XmasPartyApp.swift in Sources */,
+				E12551F32751909C005B416E /* ViewManager.swift in Sources */,
+				E12551F02751905B005B416E /* LobbyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +273,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12551EB27518BFA005B416E /* XmasData.swift in Sources */,
+				E1255206275191CB005B416E /* ColorExt.swift in Sources */,
+				E125520927519275005B416E /* HomeView.swift in Sources */,
+				E1255202275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D827518ACA005B416E /* ContentView.swift in Sources */,
+				E12551F7275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E527518BB7005B416E /* XmasManager.swift in Sources */,
 				E12551E827518BD2005B416E /* Xmas.swift in Sources */,
+				E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */,
+				E12551FC2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D627518ACA005B416E /* XmasPartyApp.swift in Sources */,
+				E12551F42751909C005B416E /* ViewManager.swift in Sources */,
+				E12551F12751905B005B416E /* LobbyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,16 +6,47 @@
 //
 
 import SwiftUI
-
+import GroupActivities
 struct ContentView: View {
+    @State var isLoading = true
+    @StateObject var xmas = XmasManager()
+    @StateObject var groupStateObserver = GroupStateObserver()
+    @StateObject var viewManager = ViewManager()
+   
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+       
+        ZStack {
+           
+       
+            if isLoading {
+           // LoadingView()
+                    
+            } else {
+                HomeView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+    
+                   
+            }
+            
+    }  .onAppear() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            withAnimation(.easeInOut(duration: 1.5)) {
+            isLoading = false
+            }
+        }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+   
+  
+    .task {
+        for await session in Xmas.sessions() {
+            xmas.configureGroupSession(session)
+            withAnimation(.spring()) {
+                viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
+        }
+        }
     }
+   
+        }
+        
+    
 }
