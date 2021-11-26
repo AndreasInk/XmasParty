@@ -11,6 +11,7 @@ extension Color {
     static let Primary = Color("Primary")
     static let Secondary = Color("Secondary")
     static let Light = Color("Light")
+    static let xmasRed = Color("xmasRed")
 }
 extension LinearGradient {
     static let Primary = LinearGradient(gradient: Gradient(colors: [.Primary, .Secondary]
