@@ -50,9 +50,10 @@ class XmasManager: ObservableObject {
     func readyUp(team: Team) {
         if let i = find(value: team, in: localBrain.teams) {
             localBrain.teams[i].isReady = true
-            
+            yourTeam =  localBrain.teams[i]
             if localBrain.teams.filter({$0.isReady}).count == localBrain.teams.count {
                 mostVotedGame = TrainingType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .Matching
+                
                 sync(localBrain)
             }
         }
@@ -78,7 +79,7 @@ class XmasManager: ObservableObject {
             
             withAnimation(.linear(duration: 1.3)) {
                 self.localBrain.teamRows[row].teams.insert(team, at:   self.bigBrain.teams.count)
-                
+                self.localBrain.teams.append(team)
             }
             
         } else {
@@ -86,7 +87,7 @@ class XmasManager: ObservableObject {
             
             withAnimation(.linear(duration: 1.3)) {
                 self.localBrain.teamRows[row].teams.append(team)
-                
+                self.localBrain.teams.append(team)
             }
             
             
