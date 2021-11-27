@@ -29,6 +29,7 @@ struct MainView: View {
                     LazyVStack(spacing: 16) {
                         HStack {
                         Text("Partyy")
+                                .foregroundColor(Color("Green"))
                             Spacer()
                             Button {
                                 settingsSheetIsPresented = true
@@ -50,10 +51,11 @@ struct MainView: View {
                                     .font(.system(size: 64))
                                 VStack(alignment: .leading) {
                                     Text("Single Player")
-                                        .font(.title3.bold())
+                                        .font(.system(size: 18, weight: .bold, design: .rounded))
                                     Button("Invite some friends!") {
                                         //invite/shareplay info
                                     }
+                                    .font(.system(size: 18, weight: .bold, design: .rounded))
                                     .foregroundColor(.secondary)
                                     Spacer()
                                 }
@@ -67,6 +69,7 @@ struct MainView: View {
                         Spacer(minLength: 32)
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(GameType.allCases, id: \.self) { item in
+                                if item != .Lobby {
                                 GroupBox {
                                     Text(item.rawValue)
                                         .foregroundColor(.white)
@@ -74,6 +77,7 @@ struct MainView: View {
                                         .frame(width: cardWidth, height: cardWidth)
                                 }
                                 .groupBoxStyle(XmasGroupBoxStyle())
+                            }
                             }
                         }
                     }
