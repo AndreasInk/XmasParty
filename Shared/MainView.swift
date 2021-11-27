@@ -66,9 +66,11 @@ struct MainView: View {
                         .buttonStyle(.plain)
                         Spacer(minLength: 32)
                         LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(0..<5, id: \.self) { item in
+                            ForEach(GameType.allCases, id: \.self) { item in
                                 GroupBox {
-                                    Text("item")
+                                    Text(item.rawValue)
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 24, weight: .bold, design: .rounded))
                                         .frame(width: cardWidth, height: cardWidth)
                                 }
                                 .groupBoxStyle(XmasGroupBoxStyle())

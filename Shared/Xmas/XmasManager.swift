@@ -15,7 +15,7 @@ class XmasManager: ObservableObject {
     
     @Published var groupSession: GroupSession<Xmas>?
     
-    @Published var mostVotedGame = TrainingType.Puzzle
+    @Published var mostVotedGame = GameType.Puzzle
     
     @Published var points = 0
     @Published var emojis = [String]()
@@ -29,9 +29,9 @@ class XmasManager: ObservableObject {
     var subscriptions = Set<AnyCancellable>()
     var tasks = Set<Task<Void, Never>>()
     
-    @Published var bigBrain = XmasData(trainingType: TrainingType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
+    @Published var bigBrain = XmasData(trainingType: GameType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
     
-    @Published var localBrain = XmasData(trainingType: TrainingType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
+    @Published var localBrain = XmasData(trainingType: GameType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
     // @Published var matching = MatchingData(id: "", time: 10, pairs: [MatchCard](), speed: 0.0, accuracy: 0.0)
     init() {
         
@@ -52,14 +52,14 @@ class XmasManager: ObservableObject {
             localBrain.teams[i].isReady = true
             yourTeam =  localBrain.teams[i]
             if localBrain.teams.filter({$0.isReady}).count == localBrain.teams.count {
-                mostVotedGame = TrainingType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .Matching
+                mostVotedGame = GameType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .Matching
                 
                 sync(localBrain)
             }
         }
         
     }
-    func voteForGame(for type: TrainingType) {
+    func voteForGame(for type: GameType) {
         localBrain.gameVotes[type.rawValue] = bigBrain.gameVotes[type.rawValue] ?? 0.0 + 1.0
         //        mostVotedGame = .Matching
         sync(localBrain)

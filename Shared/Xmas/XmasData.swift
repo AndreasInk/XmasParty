@@ -13,10 +13,10 @@ struct XmasData: Codable, Equatable {
         return true
     }
     
-    var trainingType: TrainingType.RawValue
+    var trainingType: GameType.RawValue
     var teams: [Team]
     var teamRows: [TeamGroup]
-    var gameVotes: [TrainingType.RawValue: Double] = ["": 0]
+    var gameVotes: [GameType.RawValue: Double] = ["": 0]
     
 }
 
@@ -45,20 +45,19 @@ struct Person: Codable {
 }
 
 
-enum TrainingType: String, CaseIterable {
-    
+enum GameType: String, CaseIterable {
+    case Lobby
     case Puzzle
     case Trivia
-    case Math
-    case Connotation
     case Matching
-    case Reading
-    case Lobby
+    case Pictonary
+    case Music
+   
     
 }
 
 struct Training: Identifiable {
     var id = UUID().uuidString
-    var trainingType: TrainingType
+    var trainingType: GameType
 }
 

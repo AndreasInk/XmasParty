@@ -60,10 +60,11 @@ struct Icicles: View {
             
             let iciclesThatFit = Int(floor(width / 10))
             let icicleWidth = width / CGFloat(iciclesThatFit)
+            let randomHeight = height / 2..<height
             HStack(spacing: 0) {
                 ForEach(0..<iciclesThatFit) { _ in
                     Icicle()
-                        .frame(width: icicleWidth, height: CGFloat.random(in: height / 2..<height))
+                        .frame(width: icicleWidth, height: CGFloat.random(in: randomHeight.isEmpty ? CGFloat(1)..<CGFloat(3) : randomHeight))
                         .frame(maxHeight: .infinity, alignment: .top)
                 }
             }

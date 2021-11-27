@@ -86,7 +86,7 @@ struct LobbyView: View {
                     .font(.largeTitle)
                 LazyHGrid(rows: [GridItem(.flexible(minimum: 120, maximum: 300)),GridItem(.flexible(minimum: 120, maximum: 300)),  GridItem(.flexible(minimum: 120, maximum: 300))]) {
                     
-                    ForEach(TrainingType.allCases, id: \.self){ type in
+                    ForEach(GameType.allCases, id: \.self){ type in
                     
                     if type != .Lobby {
                 Button(action: {

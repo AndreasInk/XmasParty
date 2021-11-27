@@ -36,14 +36,16 @@
 		E1255206275191CB005B416E /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255204275191CB005B416E /* ColorExt.swift */; };
 		E125520827519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
 		E125520927519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
-		E125520E275197FD005B416E /* SnowFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520A275197FD005B416E /* SnowFall.swift */; };
-		E125520F275197FD005B416E /* SnowFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520A275197FD005B416E /* SnowFall.swift */; };
 		E1255210275197FD005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E125520C275197FD005B416E /* Assets.xcassets */; };
 		E1255211275197FD005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E125520C275197FD005B416E /* Assets.xcassets */; };
 		E1255212275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
 		E1255213275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
-		E12552152751988C005B416E /* Experiments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12552142751988C005B416E /* Experiments.swift */; };
-		E12552162751988C005B416E /* Experiments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12552142751988C005B416E /* Experiments.swift */; };
+		EDFFF8EB27529C2500ED41FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8EA27529C2500ED41FB /* MainView.swift */; };
+		EDFFF8EC27529C2500ED41FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8EA27529C2500ED41FB /* MainView.swift */; };
+		EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8ED27529C2E00ED41FB /* Snow.swift */; };
+		EDFFF8EF27529C2E00ED41FB /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8ED27529C2E00ED41FB /* Snow.swift */; };
+		EDFFF8F127529C9900ED41FB /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F027529C9900ED41FB /* Blur.swift */; };
+		EDFFF8F227529C9900ED41FB /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F027529C9900ED41FB /* Blur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +66,11 @@
 		E1255200275191A9005B416E /* Box3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box3DView.swift; sourceTree = "<group>"; };
 		E1255204275191CB005B416E /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		E125520727519275005B416E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		E125520A275197FD005B416E /* SnowFall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnowFall.swift; sourceTree = "<group>"; };
 		E125520C275197FD005B416E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E125520D275197FD005B416E /* SnowFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall.sks; sourceTree = "<group>"; };
-		E12552142751988C005B416E /* Experiments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experiments.swift; sourceTree = "<group>"; };
+		EDFFF8EA27529C2500ED41FB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EDFFF8ED27529C2E00ED41FB /* Snow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snow.swift; sourceTree = "<group>"; };
+		EDFFF8F027529C9900ED41FB /* Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +107,9 @@
 				E12551C527518AC8005B416E /* XmasPartyApp.swift */,
 				E12551C627518AC8005B416E /* ContentView.swift */,
 				E125520727519275005B416E /* HomeView.swift */,
-				E12552142751988C005B416E /* Experiments.swift */,
-				E125520A275197FD005B416E /* SnowFall.swift */,
+				EDFFF8EA27529C2500ED41FB /* MainView.swift */,
+				EDFFF8F027529C9900ED41FB /* Blur.swift */,
+				EDFFF8ED27529C2E00ED41FB /* Snow.swift */,
 				E125520B275197FD005B416E /* SpriteFiles */,
 				E12551F22751909C005B416E /* ViewManager.swift */,
 				E12551FA2751915E005B416E /* TeamManager.swift */,
@@ -281,16 +285,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12551EA27518BFA005B416E /* XmasData.swift in Sources */,
+				EDFFF8EB27529C2500ED41FB /* MainView.swift in Sources */,
 				E1255205275191CB005B416E /* ColorExt.swift in Sources */,
 				E125520827519275005B416E /* HomeView.swift in Sources */,
-				E12552152751988C005B416E /* Experiments.swift in Sources */,
 				E1255201275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D727518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F6275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E427518BB7005B416E /* XmasManager.swift in Sources */,
 				E12551E727518BD2005B416E /* Xmas.swift in Sources */,
 				E12551FE27519193005B416E /* PopButtonStyle.swift in Sources */,
-				E125520E275197FD005B416E /* SnowFall.swift in Sources */,
+				EDFFF8F127529C9900ED41FB /* Blur.swift in Sources */,
+				EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */,
 				E12551FB2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D527518ACA005B416E /* XmasPartyApp.swift in Sources */,
 				E12551F32751909C005B416E /* ViewManager.swift in Sources */,
@@ -303,16 +308,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12551EB27518BFA005B416E /* XmasData.swift in Sources */,
+				EDFFF8EC27529C2500ED41FB /* MainView.swift in Sources */,
 				E1255206275191CB005B416E /* ColorExt.swift in Sources */,
 				E125520927519275005B416E /* HomeView.swift in Sources */,
-				E12552162751988C005B416E /* Experiments.swift in Sources */,
 				E1255202275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D827518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F7275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E527518BB7005B416E /* XmasManager.swift in Sources */,
 				E12551E827518BD2005B416E /* Xmas.swift in Sources */,
 				E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */,
-				E125520F275197FD005B416E /* SnowFall.swift in Sources */,
+				EDFFF8F227529C9900ED41FB /* Blur.swift in Sources */,
+				EDFFF8EF27529C2E00ED41FB /* Snow.swift in Sources */,
 				E12551FC2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D627518ACA005B416E /* XmasPartyApp.swift in Sources */,
 				E12551F42751909C005B416E /* ViewManager.swift in Sources */,

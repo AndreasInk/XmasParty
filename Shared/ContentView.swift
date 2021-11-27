@@ -23,7 +23,7 @@ struct ContentView: View {
            // LoadingView()
                     
             } else {
-                HomeView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+                //HomeView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
     
                    
             }
