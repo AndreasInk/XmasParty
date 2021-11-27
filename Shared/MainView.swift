@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SpriteKit
+import GroupActivities
 
 let columns = [
     GridItem(.flexible()),
@@ -15,19 +16,34 @@ let columns = [
 
 let cardWidth = UIScreen.main.bounds.size.width / 2 - 56
 
-struct Experiments: View {
-    init() {
-        UINavigationBar.appearance().barTintColor = UIColor(Color.xmasRed)
-    }
+struct MainView: View {
+    @State var lobbySheetIsPresented = false
+    @State var settingsSheetIsPresented = false
+    @StateObject var groupStateObserver = GroupStateObserver()
+    @ObservedObject var xmas = XmasManager()
+    @ObservedObject var viewManager = ViewManager()
     var body: some View {
             ZStack {
-                background
+                SnowBackground()
                 ScrollView {
-                    VStack(spacing: 16) {
+                    LazyVStack(spacing: 16) {
+                        HStack {
                         Text("Partyy")
+                            Spacer()
+                            Button {
+                                settingsSheetIsPresented = true
+                            } label: {
+                                Image(systemSymbol: .gearshape)
+                            }
+                            .buttonStyle(.plain)
+
+                        }
                             .font(.largeTitle.bold())
                             .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundColor(.white)
+                        Button {
+                            lobbySheetIsPresented = true
+                        } label: {
                         GroupBox {
                             HStack {
                                 Text("🎅🏽")
@@ -46,9 +62,11 @@ struct Experiments: View {
                             .frame(maxWidth: .infinity)
                         }
                         .groupBoxStyle(XmasGroupBoxStyle())
-                        
+                        }
+                        .buttonStyle(.plain)
+                        Spacer(minLength: 32)
                         LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(0..<10, id: \.self) { item in
+                            ForEach(0..<5, id: \.self) { item in
                                 GroupBox {
                                     Text("item")
                                         .frame(width: cardWidth, height: cardWidth)
@@ -60,8 +78,17 @@ struct Experiments: View {
                     .padding()
                 }
             }
+            .sheet(isPresented: $lobbySheetIsPresented, content: {
+                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+            })
+            .sheet(isPresented: $settingsSheetIsPresented, content: {
+                Text("SETTINGS")
+            })
     }
-    var background: some View {
+}
+
+struct SnowBackground: View {
+    var body: some View {
         ZStack {
         Color.xmasRed
         SpriteView(scene: SnowFall(), options: [.allowsTransparency])
@@ -97,6 +124,6 @@ struct XmasGroupBoxStyle: GroupBoxStyle {
 
 struct Experiments_Previews: PreviewProvider {
     static var previews: some View {
-        Experiments()
+        MainView()
     }
 }
