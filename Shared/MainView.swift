@@ -24,7 +24,7 @@ struct MainView: View {
     @ObservedObject var viewManager = ViewManager()
     var body: some View {
             ZStack {
-                SnowBackground()
+                Background()
                 ScrollView {
                     LazyVStack(spacing: 16) {
                         HStack {
@@ -93,11 +93,25 @@ struct MainView: View {
     }
 }
 
-struct SnowBackground: View {
+struct Background: View {
+    var backgroundType: BackgroundType = .snow
     var body: some View {
+        let scene: SKScene = {
+        switch backgroundType {
+        case .snow:
+            return SnowFall()
+        case .bauble:
+            return BaubleFall()
+        }
+        }()
         ZStack {
-        Color.xmasRed
-        SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+            switch backgroundType {
+            case .snow:
+                Color.xmasRed
+            case .bauble:
+                Color.xmasGreen
+            }
+        SpriteView(scene: scene, options: [.allowsTransparency])
             .opacity(0.8)
         }
         .edgesIgnoringSafeArea(.all)

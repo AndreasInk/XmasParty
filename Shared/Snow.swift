@@ -20,6 +20,22 @@ class SnowFall: SKScene {
     }
 }
 
+class BaubleFall: SKScene {
+    override func sceneDidLoad() {
+        size = UIScreen.main.bounds.size
+        scaleMode = .resizeFill
+        anchorPoint = CGPoint(x: 0.5, y: 1)
+        backgroundColor = .clear
+        let node = SKEmitterNode(fileNamed: "BaubleFall.sks")!
+        addChild(node)
+        node.particlePositionRange.dy = UIScreen.main.bounds.width
+    }
+}
+
+enum BackgroundType {
+    case snow, bauble
+}
+
 struct SnowPile: Shape {
     func path(in rect: CGRect) -> Path {
         let shape = UIBezierPath()
@@ -53,12 +69,13 @@ struct Icicle: Shape {
 }
 
 struct Icicles: View {
+    var icicleWidth = 10.0
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
             
-            let iciclesThatFit = Int(floor(width / 10))
+            let iciclesThatFit = Int(floor(width / icicleWidth))
             let icicleWidth = width / CGFloat(iciclesThatFit)
             let randomHeight = height / 2..<height
             HStack(spacing: 0) {
