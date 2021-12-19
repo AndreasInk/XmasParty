@@ -131,6 +131,20 @@ struct LobbyView: View {
 //        .onChange(of: train.bigBrain) { value in
 //
 //        }
+        .popover(item: $viewManager.currentGame) {
+            switch(GameType) {
+            case .Trivia:
+                EmptyView()
+            case .Puzzle:
+                EmptyView()
+            case .Pictonary:
+                PictonaryView()
+            case .Music:
+                EmptyView()
+            case .Lobby:
+                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+            }
+        }
         }
     }
         

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Pictonary {
+struct Pictonary: Codable {
     var id: String
-    var currentTeamID: String
+    var currentTeamID: Int
     var canvasData: Data
 }

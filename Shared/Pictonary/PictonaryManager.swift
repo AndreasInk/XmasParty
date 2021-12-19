@@ -7,10 +7,44 @@
 
 import SwiftUI
 import PencilKit
-class PictonaryManager: ObservableObject {
-    @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: "", canvasData: Data())
+import GroupActivities
+class PictonaryManager: XmasManager {
+    @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: 0, canvasData: Data())
+
     @Published var canvas = PKDrawing()
+    @Published var turnCount = 0
+    
+    override init() {
+        super.init()
+        if let messenger = messenger {
+        var task = Task {
+            for await (message, _) in messenger.messages(of: Pictonary.self) {
+                pictonary =  message
+                do {
+                canvas = try PKDrawing(data: pictonary.canvasData)
+                } catch {
+                    
+                }
+            }
+        }
+        tasks.insert(task)
+        }
+    }
     func eraseCanvas() {
-        
+        self.canvas = PKDrawing()
+    }
+    func updateCanvas() {
+        if let messenger = messenger {
+            Task {
+                try? await messenger.send(self.pictonary)
+            }
+        }
+    }
+    
+    func changeTurn() {
+        turnCount += 1
+        if turnCount % 2 == yourTeam?.id ?? 0 {
+            pictonary.currentTeamID = yourTeam?.id ?? 0
+        }
     }
 }

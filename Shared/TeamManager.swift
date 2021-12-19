@@ -39,8 +39,8 @@ class TeamManager: ObservableObject {
             for i in 0...100 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + CGFloat(i)) {
                     withAnimation(.easeOut(duration: 1.0)) {
-                        let team1 = Team(id: UUID().uuidString, name: "Abc", points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
-                        let team2 = Team(id: UUID().uuidString, name: "🧠", points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
+                        let team1 = Team(id: 0, name: "Abc", points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
+                        let team2 = Team(id: 1, name: "🧠", points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
                         withAnimation(.linear(duration: 1.3)) {
                             self.teamsRows[0].teams.insert(team2, at: self.teams.count)
                         }
@@ -111,13 +111,13 @@ class TeamManager: ObservableObject {
     }
     func addSpacerTeam(is first: Bool, for row: Int) {
         if first {
-            let team1 = Team(id: UUID().uuidString, name: String(self.emojis.randomElement() ?? "🧠"), points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
+            let team1 = Team(id: 0, name: String(self.emojis.randomElement() ?? "🧠"), points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
             withAnimation(.linear(duration: 1.3)) {
             self.teamsRows[row].teams.insert(team1, at: self.teams.count)
             }
            
         } else {
-            let team1 = Team(id: UUID().uuidString, name: String(self.emojis.randomElement() ?? "🧠"), points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
+            let team1 = Team(id: 1, name: String(self.emojis.randomElement() ?? "🧠"), points: 0.0, people: [Person](), teamSymbol: SFSymbol.person.rawValue, randomPadding: .random(in: 0...2))
             
             withAnimation(.linear(duration: 1.3)) {
             self.teamsRows[row].teams.append(team1)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamCreatorView: View {
-    @State var yourTeam = Team(id: UUID().uuidString, name: "", points: 0.0, people: [Person](), teamSymbol: "", randomPadding: .zero)
+    @State var yourTeam = Team(id: 0, name: "", points: 0.0, people: [Person](), teamSymbol: "", randomPadding: .zero)
     @ObservedObject var xmas: XmasManager
     @ObservedObject var viewManager: ViewManager
     var body: some View {
@@ -33,6 +33,7 @@ struct TeamCreatorView: View {
             }
             }
             Button(action: {
+                yourTeam.id = xmas.localBrain.teams.count
                 xmas.yourTeam = yourTeam
                 xmas.needsToCreatedTeam = false
                 xmas.addTeam(is: true, for: 0, team: yourTeam)

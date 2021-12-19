@@ -25,7 +25,7 @@ struct Team: Codable, Equatable {
         return true
     }
     
-    var id: String
+    var id: Int
     var name: String
     var points: Double
     var people: [Person]
