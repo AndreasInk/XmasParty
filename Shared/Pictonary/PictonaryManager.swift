@@ -11,7 +11,7 @@ import GroupActivities
 class PictonaryManager: XmasManager {
     @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: 0, canvasData: Data())
 
-    @Published var canvas = PKDrawing()
+    @Published var canvas = PKCanvasView()
     @Published var turnCount = 0
     
     override init() {
@@ -21,7 +21,7 @@ class PictonaryManager: XmasManager {
             for await (message, _) in messenger.messages(of: Pictonary.self) {
                 pictonary =  message
                 do {
-                canvas = try PKDrawing(data: pictonary.canvasData)
+                    canvas.drawing = try PKDrawing(data: pictonary.canvasData)
                 } catch {
                     
                 }
@@ -31,7 +31,7 @@ class PictonaryManager: XmasManager {
         }
     }
     func eraseCanvas() {
-        self.canvas = PKDrawing()
+        self.canvas.drawing = PKDrawing()
     }
     func updateCanvas() {
         if let messenger = messenger {

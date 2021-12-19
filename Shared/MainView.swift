@@ -71,6 +71,9 @@ struct MainView: View {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(GameType.allCases, id: \.self) { item in
                                 if item != .Lobby {
+                                    Button(action: {
+                                        xmas.localBrain.trainingType = Training(id: UUID().uuidString, trainingType: item.rawValue)
+                                    }) {
                                 GroupBox {
                                     Text(item.rawValue)
                                         .foregroundColor(.white)
@@ -79,15 +82,32 @@ struct MainView: View {
                                 }
                                 .groupBoxStyle(XmasGroupBoxStyle())
                             }
+                                }
                             }
                         }
                     }
                     .padding()
                 }
             }
-            .sheet(isPresented: $lobbySheetIsPresented, content: {
-                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
-            })
+//            .sheet(isPresented: $lobbySheetIsPresented, content: {
+//                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+//            })
+            .popover(item: $xmas.localBrain.trainingType) { game in
+                switch(GameType(rawValue: game.trainingType) ?? .Lobby) {
+                case .Trivia:
+                    EmptyView()
+                case .Puzzle:
+                    EmptyView()
+                case .Pictonary:
+                    PictonaryView()
+                case .Music:
+                    EmptyView()
+                case .Lobby:
+                    LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+                case .Matching:
+                    EmptyView()
+                }
+            }
             .sheet(isPresented: $settingsSheetIsPresented, content: {
                 Text("SETTINGS")
             })
