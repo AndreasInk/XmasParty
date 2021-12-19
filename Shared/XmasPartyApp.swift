@@ -14,9 +14,9 @@ struct XmasPartyApp: App {
         WindowGroup {
             MainView()
                 .onAppear() {
-                    music.requestUpdatedSearchResults(for: "Christmas")
+                    //music.requestUpdatedSearchResults(for: "Christmas")
                     Task {
-                        let musicAuthorizationStatus = await MusicAuthorization.request()
+                       // let musicAuthorizationStatus = await MusicAuthorization.request()
                        // await update(with: musicAuthorizationStatus)
                     
                     }

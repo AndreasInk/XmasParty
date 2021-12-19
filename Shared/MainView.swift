@@ -52,10 +52,11 @@ struct MainView: View {
                                 VStack(alignment: .leading) {
                                     Text("Single Player")
                                         .font(.system(size: 18, weight: .bold, design: .rounded))
+                                        
                                     Button("Invite some friends!") {
                                         //invite/shareplay info
                                     }
-                                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                                    .font(.XmasFont)
                                     .foregroundColor(.secondary)
                                     Spacer()
                                 }

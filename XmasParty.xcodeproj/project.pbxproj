@@ -32,14 +32,22 @@
 		E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12551FD27519193005B416E /* PopButtonStyle.swift */; };
 		E1255201275191A9005B416E /* Box3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255200275191A9005B416E /* Box3DView.swift */; };
 		E1255202275191A9005B416E /* Box3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255200275191A9005B416E /* Box3DView.swift */; };
-		E1255205275191CB005B416E /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255204275191CB005B416E /* ColorExt.swift */; };
-		E1255206275191CB005B416E /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1255204275191CB005B416E /* ColorExt.swift */; };
 		E125520827519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
 		E125520927519275005B416E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125520727519275005B416E /* HomeView.swift */; };
 		E1255210275197FD005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E125520C275197FD005B416E /* Assets.xcassets */; };
 		E1255211275197FD005B416E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E125520C275197FD005B416E /* Assets.xcassets */; };
 		E1255212275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
 		E1255213275197FD005B416E /* SnowFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = E125520D275197FD005B416E /* SnowFall.sks */; };
+		ED39BE32276FE0450081D79D /* Pictonary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE31276FE0450081D79D /* Pictonary.swift */; };
+		ED39BE33276FE0450081D79D /* Pictonary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE31276FE0450081D79D /* Pictonary.swift */; };
+		ED39BE36276FE41C0081D79D /* PictonaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE35276FE41C0081D79D /* PictonaryManager.swift */; };
+		ED39BE37276FE41C0081D79D /* PictonaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE35276FE41C0081D79D /* PictonaryManager.swift */; };
+		ED39BE3D276FE5700081D79D /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE3C276FE5700081D79D /* ColorExt.swift */; };
+		ED39BE3E276FE5700081D79D /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE3C276FE5700081D79D /* ColorExt.swift */; };
+		ED39BE40276FE5FF0081D79D /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE3F276FE5FF0081D79D /* StringExt.swift */; };
+		ED39BE41276FE5FF0081D79D /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE3F276FE5FF0081D79D /* StringExt.swift */; };
+		ED39BE43276FE8B10081D79D /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE42276FE8B10081D79D /* FontExt.swift */; };
+		ED39BE44276FE8B10081D79D /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39BE42276FE8B10081D79D /* FontExt.swift */; };
 		EDFFF8EB27529C2500ED41FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8EA27529C2500ED41FB /* MainView.swift */; };
 		EDFFF8EC27529C2500ED41FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8EA27529C2500ED41FB /* MainView.swift */; };
 		EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8ED27529C2E00ED41FB /* Snow.swift */; };
@@ -66,10 +74,14 @@
 		E12551FA2751915E005B416E /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		E12551FD27519193005B416E /* PopButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopButtonStyle.swift; sourceTree = "<group>"; };
 		E1255200275191A9005B416E /* Box3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box3DView.swift; sourceTree = "<group>"; };
-		E1255204275191CB005B416E /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		E125520727519275005B416E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E125520C275197FD005B416E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E125520D275197FD005B416E /* SnowFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowFall.sks; sourceTree = "<group>"; };
+		ED39BE31276FE0450081D79D /* Pictonary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pictonary.swift; sourceTree = "<group>"; };
+		ED39BE35276FE41C0081D79D /* PictonaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictonaryManager.swift; sourceTree = "<group>"; };
+		ED39BE3C276FE5700081D79D /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		ED39BE3F276FE5FF0081D79D /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		ED39BE42276FE8B10081D79D /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
 		EDFFF8EA27529C2500ED41FB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDFFF8ED27529C2E00ED41FB /* Snow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snow.swift; sourceTree = "<group>"; };
 		EDFFF8F027529C9900ED41FB /* Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -109,15 +121,16 @@
 			children = (
 				E12551C527518AC8005B416E /* XmasPartyApp.swift */,
 				E12551C627518AC8005B416E /* ContentView.swift */,
+				ED39BE3B276FE55E0081D79D /* Ext */,
 				E125520727519275005B416E /* HomeView.swift */,
 				EDFFF8EA27529C2500ED41FB /* MainView.swift */,
 				EDFFF8F027529C9900ED41FB /* Blur.swift */,
 				EDFFF8F72752AC9500ED41FB /* MusicManager.swift */,
+				ED39BE34276FE06A0081D79D /* Pictonary */,
 				EDFFF8ED27529C2E00ED41FB /* Snow.swift */,
 				E125520B275197FD005B416E /* SpriteFiles */,
 				E12551F22751909C005B416E /* ViewManager.swift */,
 				E12551FA2751915E005B416E /* TeamManager.swift */,
-				E1255204275191CB005B416E /* ColorExt.swift */,
 				E1255203275191B5005B416E /* ButtonStyles */,
 				E12551F92751914B005B416E /* Lobby */,
 				E12551F827519140005B416E /* Xmas */,
@@ -178,6 +191,25 @@
 				E125520D275197FD005B416E /* SnowFall.sks */,
 			);
 			path = SpriteFiles;
+			sourceTree = "<group>";
+		};
+		ED39BE34276FE06A0081D79D /* Pictonary */ = {
+			isa = PBXGroup;
+			children = (
+				ED39BE31276FE0450081D79D /* Pictonary.swift */,
+				ED39BE35276FE41C0081D79D /* PictonaryManager.swift */,
+			);
+			path = Pictonary;
+			sourceTree = "<group>";
+		};
+		ED39BE3B276FE55E0081D79D /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				ED39BE3C276FE5700081D79D /* ColorExt.swift */,
+				ED39BE42276FE8B10081D79D /* FontExt.swift */,
+				ED39BE3F276FE5FF0081D79D /* StringExt.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,14 +322,18 @@
 			files = (
 				E12551EA27518BFA005B416E /* XmasData.swift in Sources */,
 				EDFFF8EB27529C2500ED41FB /* MainView.swift in Sources */,
-				E1255205275191CB005B416E /* ColorExt.swift in Sources */,
+				ED39BE32276FE0450081D79D /* Pictonary.swift in Sources */,
 				EDFFF8F82752AC9500ED41FB /* MusicManager.swift in Sources */,
+				ED39BE36276FE41C0081D79D /* PictonaryManager.swift in Sources */,
+				ED39BE43276FE8B10081D79D /* FontExt.swift in Sources */,
 				E125520827519275005B416E /* HomeView.swift in Sources */,
 				E1255201275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D727518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F6275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E427518BB7005B416E /* XmasManager.swift in Sources */,
+				ED39BE40276FE5FF0081D79D /* StringExt.swift in Sources */,
 				E12551E727518BD2005B416E /* Xmas.swift in Sources */,
+				ED39BE3D276FE5700081D79D /* ColorExt.swift in Sources */,
 				E12551FE27519193005B416E /* PopButtonStyle.swift in Sources */,
 				EDFFF8F127529C9900ED41FB /* Blur.swift in Sources */,
 				EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */,
@@ -314,14 +350,18 @@
 			files = (
 				E12551EB27518BFA005B416E /* XmasData.swift in Sources */,
 				EDFFF8EC27529C2500ED41FB /* MainView.swift in Sources */,
-				E1255206275191CB005B416E /* ColorExt.swift in Sources */,
+				ED39BE33276FE0450081D79D /* Pictonary.swift in Sources */,
 				EDFFF8F92752AC9500ED41FB /* MusicManager.swift in Sources */,
+				ED39BE37276FE41C0081D79D /* PictonaryManager.swift in Sources */,
+				ED39BE44276FE8B10081D79D /* FontExt.swift in Sources */,
 				E125520927519275005B416E /* HomeView.swift in Sources */,
 				E1255202275191A9005B416E /* Box3DView.swift in Sources */,
 				E12551D827518ACA005B416E /* ContentView.swift in Sources */,
 				E12551F7275190F5005B416E /* TeamCreatorView.swift in Sources */,
 				E12551E527518BB7005B416E /* XmasManager.swift in Sources */,
+				ED39BE41276FE5FF0081D79D /* StringExt.swift in Sources */,
 				E12551E827518BD2005B416E /* Xmas.swift in Sources */,
+				ED39BE3E276FE5700081D79D /* ColorExt.swift in Sources */,
 				E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */,
 				EDFFF8F227529C9900ED41FB /* Blur.swift in Sources */,
 				EDFFF8EF27529C2E00ED41FB /* Snow.swift in Sources */,
