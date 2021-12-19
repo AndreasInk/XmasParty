@@ -7,7 +7,50 @@
 
 import SwiftUI
 
-struct GuessWho: View {
+struct CurrentTurnGuessWhoView: View {
+    var body: some View {
+        ZStack {
+            Background()
+            VStack {
+                Text("Guess Who")
+                    .font(.largeTitle.bold())
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                    .padding()
+                Spacer()
+                GroupBox {
+                    VStack(spacing: 16) {
+                        Text("It's xy's turn")
+                            .font(.XmasFont)
+                            .foregroundColor(.secondary)
+                        Text("Shrek")
+                            .font(.system(size: 32, weight: .bold, design: .rounded))
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                .groupBoxStyle(XmasGroupBoxStyle())
+                .padding()
+                Button {
+                    //next
+                } label: {
+                    Text("Next person")
+                        .foregroundColor(.white)
+                        .bold()
+                        .padding()
+                        .background(.thinMaterial)
+                        .cornerRadius(16)
+                }
+                .buttonStyle(.plain)
+
+                Spacer()
+            }
+        }
+    }
+}
+
+struct AssignRolesGuessWhoView: View {
     @State var text = ""
     var body: some View {
         ZStack {
@@ -38,7 +81,7 @@ struct GuessWho: View {
                     }
                     .padding()
                 }
-                .groupBoxStyle(XmasGroupBoxStyle(maxSnowHeight: 10))
+                .groupBoxStyle(XmasGroupBoxStyle())
             .padding()
                 Spacer()
             }
@@ -48,7 +91,7 @@ struct GuessWho: View {
 
 struct GuessWho_Previews: PreviewProvider {
     static var previews: some View {
-        GuessWho()
+        CurrentTurnGuessWhoView()
     }
 }
 
