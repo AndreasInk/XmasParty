@@ -11,4 +11,5 @@ struct Pictonary: Codable {
     var id: String
     var currentTeamID: Int
     var canvasData: Data
+    var topics: [String]
 }

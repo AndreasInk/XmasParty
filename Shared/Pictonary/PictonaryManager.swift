@@ -9,7 +9,7 @@ import SwiftUI
 import PencilKit
 import GroupActivities
 class PictonaryManager: XmasManager {
-    @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: 0, canvasData: Data())
+    @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: 0, canvasData: Data(), topics: [String]())
 
     @Published var canvas = PKCanvasView()
     @Published var turnCount = 0
