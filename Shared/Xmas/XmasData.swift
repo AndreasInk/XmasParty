@@ -13,7 +13,7 @@ struct XmasData: Codable, Equatable {
         return true
     }
     
-    var trainingType: GameType.RawValue
+    var trainingType: Training?
     var teams: [Team]
     var teamRows: [TeamGroup]
     var gameVotes: [GameType.RawValue: Double] = ["": 0]
@@ -25,7 +25,7 @@ struct Team: Codable, Equatable {
         return true
     }
     
-    var id: String
+    var id: Int
     var name: String
     var points: Double
     var people: [Person]
@@ -46,18 +46,20 @@ struct Person: Codable {
 
 
 enum GameType: String, CaseIterable {
-    case Lobby
-    case Puzzle
-    case Trivia
-    case Matching
-    case Pictonary
-    case Music
+   
+    
+    case Lobby = "Lobby"
+    case Puzzle  = "Puzzle"
+    case Trivia  = "Trivia"
+    case Matching  = "Matching"
+    case Pictonary  = "Pictonary"
+    case Music  = "Music"
    
     
 }
 
-struct Training: Identifiable {
+struct Training: Identifiable, Codable {
     var id = UUID().uuidString
-    var trainingType: GameType
+    var trainingType: GameType.RawValue
 }
 

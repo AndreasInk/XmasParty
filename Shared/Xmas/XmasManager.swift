@@ -29,9 +29,9 @@ class XmasManager: ObservableObject {
     var subscriptions = Set<AnyCancellable>()
     var tasks = Set<Task<Void, Never>>()
     
-    @Published var bigBrain = XmasData(trainingType: GameType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
+    @Published var bigBrain = XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
     
-    @Published var localBrain = XmasData(trainingType: GameType.Lobby.rawValue, teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
+    @Published var localBrain = XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
     // @Published var matching = MatchingData(id: "", time: 10, pairs: [MatchCard](), speed: 0.0, accuracy: 0.0)
     init() {
         

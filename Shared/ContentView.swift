@@ -41,7 +41,7 @@ struct ContentView: View {
         for await session in Xmas.sessions() {
             xmas.configureGroupSession(session)
             withAnimation(.spring()) {
-                viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
+                viewManager.currentGame = Training(id: UUID().uuidString, trainingType: GameType.Lobby.rawValue)
         }
         }
     }

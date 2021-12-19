@@ -108,9 +108,9 @@ struct Background: View {
         ZStack {
             switch backgroundType {
             case .snow:
-                Color.xmasRed
+                Color.XmasRed
             case .bauble:
-                Color.xmasGreen
+                Color.XmasGreen
             }
         SpriteView(scene: scene, options: [.allowsTransparency])
             .opacity(0.8)

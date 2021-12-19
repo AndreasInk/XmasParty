@@ -15,12 +15,12 @@ extension Color {
     static let XmasGreen = Color("XmasGreen")
 }
 
-//extension LinearGradient {
-//    static let Primary = LinearGradient(gradient: Gradient(colors: [.Primary, .Secondary]
-//), startPoint: .topLeading, endPoint: .bottom)
-//
-//    static let Secondary = LinearGradient(gradient: Gradient(colors: [.Secondary, .Primary]
-//), startPoint: .topLeading, endPoint: .bottom)
-//
-//    static let Light = LinearGradient(colors: [.Light, .Light.opacity(0.6)], startPoint: .topLeading, endPoint: .bottom)
-//}
+extension LinearGradient {
+    static let Primary = LinearGradient(gradient: Gradient(colors: [.Primary, .Secondary]
+), startPoint: .topLeading, endPoint: .bottom)
+
+    static let Secondary = LinearGradient(gradient: Gradient(colors: [.Secondary, .Primary]
+), startPoint: .topLeading, endPoint: .bottom)
+
+    static let Light = LinearGradient(colors: [.Light, .Light.opacity(0.6)], startPoint: .topLeading, endPoint: .bottom)
+}

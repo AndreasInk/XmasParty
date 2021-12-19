@@ -30,7 +30,7 @@ struct LobbyView: View {
                 }
                 .onChange(of: xmas.localBrain.teams) { value in
                     if value.filter({$0.isReady == true}).count == value.count {
-                        viewManager.currentGame?.trainingType = xmas.mostVotedGame
+                        viewManager.currentGame?.trainingType = xmas.mostVotedGame.rawValue
                     }
                 }
         
@@ -123,14 +123,30 @@ struct LobbyView: View {
         .sheet(isPresented: $xmas.needsToCreatedTeam) {
             TeamCreatorView(xmas: xmas, viewManager: viewManager)
         }
-       
-        .onChange(of: xmas.mostVotedGame) { newValue in
-            xmas.localBrain.trainingType = newValue.rawValue
+        .popover(item: $xmas.localBrain.trainingType) { game in
+            switch(GameType(rawValue: game.trainingType) ?? .Lobby) {
+            case .Trivia:
+                EmptyView()
+            case .Puzzle:
+                EmptyView()
+            case .Pictonary:
+                PictonaryView()
+            case .Music:
+                EmptyView()
+            case .Lobby:
+                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+            case .Matching:
+                EmptyView()
+            }
         }
+//        .onChange(of: xmas.mostVotedGame) { newValue in
+//            xmas.localBrain.trainingType = newValue.rawValue
+//        }
        
 //        .onChange(of: train.bigBrain) { value in
 //
 //        }
+       
         }
     }
         
