@@ -9,7 +9,7 @@ import SwiftUI
 import SFSafeSymbols
 class TeamManager: ObservableObject {
     @Published var emojis = [String]()
-@Published var teams = [Team]()
+    @Published var teams = [Team]()
     @Published var animate = false
     @Published var yourTeam: Team?
     @Published var teamsRows = [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())]
