@@ -7,22 +7,18 @@
 
 import SwiftUI
 import MusicKit
+import GroupActivities
 @main
 struct XmasPartyApp: App {
     @StateObject var music = MusicManager()
     @StateObject var xmas = XmasManager()
     @StateObject var viewManager = ViewManager()
+    @StateObject var groupStateObserver = GroupStateObserver()
     var body: some Scene {
         WindowGroup {
-            MainView(xmas: xmas, viewManager: viewManager)
-                .onAppear() {
-                    //music.requestUpdatedSearchResults(for: "Christmas")
-                    Task {
-                       // let musicAuthorizationStatus = await MusicAuthorization.request()
-                       // await update(with: musicAuthorizationStatus)
-                    
-                    }
-                }
+            MainView(xmas: xmas, groupStateObserver: groupStateObserver, viewManager: viewManager)
+              
+              
         }
     }
 }

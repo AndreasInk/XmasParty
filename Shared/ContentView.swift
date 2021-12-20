@@ -12,7 +12,6 @@ struct ContentView: View {
     @StateObject var xmas = XmasManager()
     @StateObject var groupStateObserver = GroupStateObserver()
     @StateObject var viewManager = ViewManager()
-   
     
     var body: some View {
        

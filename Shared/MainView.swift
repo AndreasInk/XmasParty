@@ -19,21 +19,23 @@ let cardWidth = UIScreen.main.bounds.size.width / 2 - 56
 struct MainView: View {
     @State var lobbySheetIsPresented = false
     @State var settingsSheetIsPresented = false
-    @StateObject var groupStateObserver = GroupStateObserver()
-    @ObservedObject var xmas = XmasManager()
-    @ObservedObject var viewManager = ViewManager()
+    @ObservedObject var xmas: XmasManager
+    @ObservedObject var groupStateObserver: GroupStateObserver
+    @ObservedObject var viewManager: ViewManager
     var body: some View {
             ZStack {
                 Background()
-                  
-                        .task {
-                            for await session in Xmas.sessions() {
-                                xmas.configureGroupSession(session)
-                                withAnimation(.spring()) {
-                                    //viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
-                            }
-                            }
+                    .onAppear() {
+                        xmas.startSharing()
+                    }
+                    .task {
+                        for await session in Xmas.sessions() {
+                            xmas.configureGroupSession(session)
+                            withAnimation(.spring()) {
+                                //viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
                         }
+                        }
+                    }
                     
                 ScrollView {
                     LazyVStack(spacing: 16) {
@@ -83,6 +85,7 @@ struct MainView: View {
                                 if item != .Lobby {
                                     Button(action: {
                                         xmas.localBrain.trainingType = Training(id: UUID().uuidString, trainingType: item.rawValue)
+                                        xmas.sync(xmas.localBrain)
                                     }) {
                                 GroupBox {
                                     Text(item.rawValue)
@@ -103,7 +106,7 @@ struct MainView: View {
 //                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
 //            })
             .popover(item: $xmas.localBrain.trainingType) { game in
-                switch(GameType(rawValue: game.trainingType) ?? .Lobby) {
+                switch(GameType(rawValue: game.trainingType) ?? .Trivia) {
                 case .Trivia:
                     EmptyView()
                 case .GuessWho :
@@ -173,8 +176,3 @@ struct XmasGroupBoxStyle: GroupBoxStyle {
     }
 }
 
-struct Experiments_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}

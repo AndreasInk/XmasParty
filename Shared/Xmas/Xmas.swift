@@ -10,7 +10,7 @@ import GroupActivities
 struct Xmas: GroupActivity {
     var metadata: GroupActivityMetadata {
         var metadata = GroupActivityMetadata()
-        metadata.title = NSLocalizedString("BigBrain", comment: "Big Brain Brain Training")
+        metadata.title = NSLocalizedString("Xmas", comment: "Big Brain Brain Training")
         metadata.type = .generic
         return metadata
     }
