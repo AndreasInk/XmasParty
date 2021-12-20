@@ -9,9 +9,14 @@
 import SwiftUI
 import GroupActivities
 import Combine
+import PencilKit
 
 @MainActor
 class XmasManager: ObservableObject {
+    
+    @Published var pictonary = Pictonary(id: UUID().uuidString, currentTeamID: 0, canvasData: Data(), topics: [String]())
+
+    @Published var canvas = PKCanvasView()
     
     @Published var groupSession: GroupSession<Xmas>?
     
@@ -30,7 +35,7 @@ class XmasManager: ObservableObject {
     var tasks = Set<Task<Void, Never>>()
     
     @Published var bigBrain = XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
-    
+    @Published var turnCount = 0
     @Published var localBrain: XmasData
     // @Published var matching = MatchingData(id: "", time: 10, pairs: [MatchCard](), speed: 0.0, accuracy: 0.0)
     init(localBrain: XmasData) {
@@ -152,7 +157,17 @@ class XmasManager: ObservableObject {
             }
         }
         tasks.insert(task)
-        
+         task = Task {
+            for await (message, _) in messenger.messages(of: Pictonary.self) {
+                pictonary =  message
+                do {
+                    canvas.drawing = try PKDrawing(data: pictonary.canvasData)
+                } catch {
+                    
+                }
+            }
+        }
+        tasks.insert(task)
         groupSession.join()
     }
     func find(value searchValue: Team, in array: [Team]) -> Int?
@@ -166,5 +181,30 @@ class XmasManager: ObservableObject {
         
         return nil
     }
+    func randomThing() -> String {
+        return ["Santa", "Gift", "Fireplace", "Cookie"].randomElement() ?? "Santa"
+    }
+    func eraseCanvas() {
+        self.canvas.drawing = PKDrawing()
+    }
+    func updateCanvas() {
+        if let messenger = messenger {
+            Task {
+                try? await messenger.send(self.pictonary)
+            }
+        }
+    }
+    
+    func changeTurn() {
+        turnCount += 1
+        if turnCount == yourTeam?.id ?? 0 {
+            pictonary.currentTeamID = yourTeam?.id ?? 0
+        }
+        if turnCount > localBrain.teams.count {
+            turnCount = 0
+        }
+    }
+    @Published var guessWho = GuessWho(id: UUID().uuidString, currentTeamID: 0, canvasData: Data(), topics: [String]())
+       
 }
 

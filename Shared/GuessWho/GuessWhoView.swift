@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GuessWhoView: View {
-    @StateObject var guessWho = GuessWhoManager(localBrain: XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())]))
+    @ObservedObject var guessWho: XmasManager
     var body: some View {
         ZStack {
             if guessWho.guessWho.topics.count == guessWho.localBrain.teams.count && guessWho.guessWho.topics.count != 0 {
@@ -30,7 +30,7 @@ struct GuessWhoView: View {
         }
 }
 struct CurrentTurnGuessWhoView: View {
-    @ObservedObject var guessWho: GuessWhoManager
+    @ObservedObject var guessWho: XmasManager
     var body: some View {
         ZStack {
             Background()
@@ -74,7 +74,7 @@ struct CurrentTurnGuessWhoView: View {
 }
 
 struct AssignRolesGuessWhoView: View {
-    @ObservedObject var guessWho: GuessWhoManager
+    @ObservedObject var guessWho: XmasManager
     @State var enteredThing = false
     @State var text = ""
     var body: some View {

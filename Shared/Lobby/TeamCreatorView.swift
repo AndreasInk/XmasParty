@@ -34,13 +34,14 @@ struct TeamCreatorView: View {
             }
             Button(action: {
                 yourTeam.id = xmas.localBrain.teams.count
+                print(xmas.localBrain.teams.count)
                 xmas.yourTeam = yourTeam
                 xmas.needsToCreatedTeam = false
                 xmas.addTeam(is: true, for: 0, team: yourTeam)
                 xmas.sync(xmas.localBrain)
             }) {
                 Text("Join")
-            } .buttonStyle(PopButtonStyle())
+            } .buttonStyle(BorderedProminentButtonStyle())
                 .frame(maxHeight: 85)
         } .frame(minWidth: 300, maxWidth: 500, minHeight: 500, alignment: .center)
             .padding()

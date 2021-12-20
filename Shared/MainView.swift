@@ -14,7 +14,11 @@ let columns = [
     GridItem(.flexible()),
     GridItem(.flexible())
 ]
+let columns2 = [
+    GridItem(.flexible()),
+    GridItem(.flexible()),
 
+]
 let cardWidth = UIScreen.main.bounds.size.width / 2 - 56
 
 struct MainView: View {
@@ -27,7 +31,9 @@ struct MainView: View {
             ZStack {
                 Background()
                     .onAppear() {
+                        if xmas.groupSession?.activeParticipants.count == 1 {
                         xmas.startSharing()
+                        }
                     }
                     .task {
                         for await session in Xmas.sessions() {
@@ -39,23 +45,24 @@ struct MainView: View {
                     }
                     
                 ScrollView {
-                    VStack {
-                    ForEach(xmas.localBrain.teamRows, id: \.id) { teams in
+                    LazyVGrid(columns: columns2, spacing: 5) {
+                        ForEach(xmas.localBrain.teamRows, id: \.id) { teams in
                     HStack {
-                    ForEach(teams.teams, id: \.id) { team in
+                        ForEach(teams.teams, id: \.id) { team in
                         VStack {
                             
                     ZStack {
                        
-                        Circle().foregroundColor(Color.Primary)
+                        Circle().foregroundColor(Color.XmasGreen)
                             .frame(minWidth: 75,  maxWidth: 125, minHeight: 75, maxHeight: 125)
-                        if let symbol = SFSymbol(rawValue: team.teamSymbol) {
-                            Image(systemSymbol:  symbol).foregroundColor(.white)
-                            .frame(width: 50, height: 50, alignment: .center)
-                        } else {
+//                        if let symbol = SFSymbol(rawValue: team.teamSymbol) {
+//                            Image(systemSymbol:  symbol).foregroundColor(.white)
+//                            .frame(width: 50, height: 50, alignment: .center)
+//                        } else {
                             Text(team.teamSymbol)
                                 .frame(width: 50, height: 50, alignment: .center)
-                        }
+                                .foregroundColor(.white)
+                      //  }
                         VStack {
                             Spacer()
                             HStack {
@@ -77,6 +84,7 @@ struct MainView: View {
                         }
                 }
                     }
+                    } .padding()
                     LazyVStack(spacing: 16) {
                         HStack {
                         Text("Partyy")
@@ -137,13 +145,16 @@ struct MainView: View {
                                 }
                             }
                         }
-                    }
+                    
                     }
                     .padding()
                 }
             
         
     }
+            .sheet(isPresented: $xmas.needsToCreatedTeam) {
+                TeamCreatorView(xmas: xmas, viewManager: viewManager)
+            }
 //            .sheet(isPresented: $lobbySheetIsPresented, content: {
 //                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
 //            })
@@ -152,10 +163,10 @@ struct MainView: View {
                 case .Trivia:
                     EmptyView()
                 case .GuessWho:
-                    GuessWhoView()
+                    GuessWhoView(guessWho: xmas)
                         .frame(minWidth: 300, minHeight: 300)
                 case .Pictonary:
-                    PictonaryView(pictonary: PictonaryManager(localBrain: xmas.localBrain))
+                    PictonaryView(xmas: xmas)
                         .frame(minWidth: 300, minHeight: 300)
                 case .Lobby:
                     LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)

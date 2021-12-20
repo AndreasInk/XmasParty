@@ -9,34 +9,27 @@ import SwiftUI
 import PencilKit
 import SFSafeSymbols
 struct PictonaryView: View {
-    @ObservedObject var pictonary: PictonaryManager
+    @ObservedObject var xmas: XmasManager
  
     var body: some View {
         ZStack {
-            if pictonary.pictonary.topics.count == pictonary.localBrain.teams.count && pictonary.pictonary.topics.count != 0 {
-                if pictonary.pictonary.currentTeamID == pictonary.yourTeam?.id {
+            if xmas.pictonary.topics.count == xmas.localBrain.teams.count && xmas.pictonary.topics.count != 0 {
+                if xmas.pictonary.currentTeamID == xmas.yourTeam?.id {
                     VStack {
-                        Text(pictonary.pictonary.topics[pictonary.pictonary.currentTeamID])
+                        Text(xmas.pictonary.topics[xmas.pictonary.currentTeamID])
                             .font(.Title)
                     }
                 }
-                MyCanvas(canvasView: $pictonary.canvas)
+                MyCanvas(canvasView: $xmas.canvas)
                 
                 
             } else {
             
-                AssignRolesPictonaryView(pictonary: pictonary)
+                AssignRolesPictonaryView(pictonary: xmas)
             
         }
     }
-        .task {
-            for await session in Xmas.sessions() {
-                pictonary.configureGroupSession(session)
-                withAnimation(.spring()) {
-                    //viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
-            }
-            }
-        }
+       
 }
 }
 
@@ -54,7 +47,7 @@ struct MyCanvas: UIViewRepresentable {
 
 struct AssignRolesPictonaryView: View {
     @State var text = ""
-    @ObservedObject var pictonary: PictonaryManager
+    @ObservedObject var pictonary: XmasManager
     @State var enteredThing = false
     var body: some View {
         ZStack {
@@ -86,7 +79,7 @@ struct AssignRolesPictonaryView: View {
                             if text != "" {
                                 print(pictonary.localBrain.teams)
                                 print(pictonary.localBrain.teams)
-                            pictonary.pictonary.topics.append(text)
+                                pictonary.pictonary.topics.append(text)
                             enteredThing = true
                             }
                         }) {
