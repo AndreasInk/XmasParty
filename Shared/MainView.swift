@@ -8,6 +8,7 @@
 import SwiftUI
 import SpriteKit
 import GroupActivities
+import SFSafeSymbols
 
 let columns = [
     GridItem(.flexible()),
@@ -38,6 +39,44 @@ struct MainView: View {
                     }
                     
                 ScrollView {
+                    VStack {
+                    ForEach(xmas.localBrain.teamRows, id: \.id) { teams in
+                    HStack {
+                    ForEach(teams.teams, id: \.id) { team in
+                        VStack {
+                            
+                    ZStack {
+                       
+                        Circle().foregroundColor(Color.Primary)
+                            .frame(minWidth: 75,  maxWidth: 125, minHeight: 75, maxHeight: 125)
+                        if let symbol = SFSymbol(rawValue: team.teamSymbol) {
+                            Image(systemSymbol:  symbol).foregroundColor(.white)
+                            .frame(width: 50, height: 50, alignment: .center)
+                        } else {
+                            Text(team.teamSymbol)
+                                .frame(width: 50, height: 50, alignment: .center)
+                        }
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Text(String(team.points))
+                                    .font(.caption)
+                                    .foregroundColor(.Primary)
+                                    .padding(3)
+                                    .background(Circle().foregroundColor(.white))
+                            }
+                        }
+                    } //.scaleEffect(CGFloat(team.people.count/10 + 1))
+                    .frame(width: 50, height: 50, alignment: .center)
+                        .transition(.opacity.combined(with: .scale))
+                            Text(team.name)
+                                    .fixedSize()
+                                    .padding()
+                        } .padding(.horizontal)
+                        }
+                }
+                    }
                     LazyVStack(spacing: 16) {
                         HStack {
                         Text("Partyy")
@@ -99,27 +138,34 @@ struct MainView: View {
                             }
                         }
                     }
+                    }
                     .padding()
                 }
-            }
+            
+        
+    }
 //            .sheet(isPresented: $lobbySheetIsPresented, content: {
 //                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
 //            })
-            .popover(item: $xmas.localBrain.trainingType) { game in
+            .sheet(item: $xmas.localBrain.trainingType) { game in
                 switch(GameType(rawValue: game.trainingType) ?? .Trivia) {
                 case .Trivia:
                     EmptyView()
-                case .GuessWho :
+                case .GuessWho:
                     GuessWhoView()
+                        .frame(minWidth: 300, minHeight: 300)
                 case .Pictonary:
-                    PictonaryView()
+                    PictonaryView(pictonary: PictonaryManager(localBrain: xmas.localBrain))
+                        .frame(minWidth: 300, minHeight: 300)
                 case .Lobby:
                     LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
+                        .frame(minWidth: 300, minHeight: 300)
                 case .Matching:
                     EmptyView()
                 case .Puzzle:
                     EmptyView()
                 }
+                   
             }
             .sheet(isPresented: $settingsSheetIsPresented, content: {
                 Text("SETTINGS")

@@ -14,8 +14,9 @@ class PictonaryManager: XmasManager {
     @Published var canvas = PKCanvasView()
     @Published var turnCount = 0
     
-    override init() {
-        super.init()
+    override init(localBrain: XmasData) {
+        super.init(localBrain: localBrain)
+        self.localBrain = localBrain
         if let messenger = messenger {
         var task = Task {
             for await (message, _) in messenger.messages(of: Pictonary.self) {

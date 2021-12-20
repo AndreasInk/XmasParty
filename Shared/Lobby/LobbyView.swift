@@ -130,7 +130,7 @@ struct LobbyView: View {
             case .Puzzle:
                 EmptyView()
             case .Pictonary:
-                PictonaryView()
+                PictonaryView(pictonary: xmas as! PictonaryManager)
             
             case .Lobby:
                 LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)

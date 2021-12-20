@@ -9,7 +9,7 @@ import SwiftUI
 import GroupActivities
 struct ContentView: View {
     @State var isLoading = true
-    @StateObject var xmas = XmasManager()
+    @StateObject var xmas = XmasManager(localBrain:  XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())]))
     @StateObject var groupStateObserver = GroupStateObserver()
     @StateObject var viewManager = ViewManager()
     

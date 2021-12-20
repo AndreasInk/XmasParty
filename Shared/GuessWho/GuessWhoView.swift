@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GuessWhoView: View {
-    @StateObject var guessWho = GuessWhoManager()
+    @StateObject var guessWho = GuessWhoManager(localBrain: XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())]))
     var body: some View {
         ZStack {
             if guessWho.guessWho.topics.count == guessWho.localBrain.teams.count && guessWho.guessWho.topics.count != 0 {

@@ -31,10 +31,10 @@ class XmasManager: ObservableObject {
     
     @Published var bigBrain = XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
     
-    @Published var localBrain = XmasData(teams: [Team](), teamRows: [TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]()), TeamGroup(teams: [Team]())])
+    @Published var localBrain: XmasData
     // @Published var matching = MatchingData(id: "", time: 10, pairs: [MatchCard](), speed: 0.0, accuracy: 0.0)
-    init() {
-        
+    init(localBrain: XmasData) {
+        self.localBrain = localBrain
         for i in 0x1F601...0x1F64F {
             self.emojis.append( String(UnicodeScalar(i) ?? "-"))
         }

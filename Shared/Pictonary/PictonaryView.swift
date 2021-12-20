@@ -9,7 +9,7 @@ import SwiftUI
 import PencilKit
 import SFSafeSymbols
 struct PictonaryView: View {
-    @StateObject var pictonary = PictonaryManager()
+    @ObservedObject var pictonary: PictonaryManager
  
     var body: some View {
         ZStack {
@@ -29,6 +29,14 @@ struct PictonaryView: View {
             
         }
     }
+        .task {
+            for await session in Xmas.sessions() {
+                pictonary.configureGroupSession(session)
+                withAnimation(.spring()) {
+                    //viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
+            }
+            }
+        }
 }
 }
 
@@ -76,6 +84,8 @@ struct AssignRolesPictonaryView: View {
                         }
                         Button(action: {
                             if text != "" {
+                                print(pictonary.localBrain.teams)
+                                print(pictonary.localBrain.teams)
                             pictonary.pictonary.topics.append(text)
                             enteredThing = true
                             }
