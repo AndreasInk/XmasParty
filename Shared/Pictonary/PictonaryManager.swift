@@ -30,6 +30,9 @@ class PictonaryManager: XmasManager {
         tasks.insert(task)
         }
     }
+    func randomThing() -> String {
+        return ["Santa", "Gift", "Fireplace", "Cookie"].randomElement() ?? "Santa"
+    }
     func eraseCanvas() {
         self.canvas.drawing = PKDrawing()
     }

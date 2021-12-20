@@ -10,9 +10,11 @@ import MusicKit
 @main
 struct XmasPartyApp: App {
     @StateObject var music = MusicManager()
+    @StateObject var xmas = XmasManager()
+    @StateObject var viewManager = ViewManager()
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(xmas: xmas, viewManager: viewManager)
                 .onAppear() {
                     //music.requestUpdatedSearchResults(for: "Christmas")
                     Task {

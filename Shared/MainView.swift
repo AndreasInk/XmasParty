@@ -25,6 +25,16 @@ struct MainView: View {
     var body: some View {
             ZStack {
                 Background()
+                  
+                        .task {
+                            for await session in Xmas.sessions() {
+                                xmas.configureGroupSession(session)
+                                withAnimation(.spring()) {
+                                    //viewManager.currentGame = Training(id: UUID().uuidString, trainingType: .Lobby)
+                            }
+                            }
+                        }
+                    
                 ScrollView {
                     LazyVStack(spacing: 16) {
                         HStack {

@@ -88,6 +88,7 @@
 		ED39BE42276FE8B10081D79D /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
 		ED39BE45276FEEC00081D79D /* PictonaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictonaryView.swift; sourceTree = "<group>"; };
 		ED39BE4C276FF5030081D79D /* GuessWhoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoView.swift; sourceTree = "<group>"; };
+		ED39BE502770001D0081D79D /* XmasParty (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "XmasParty (iOS).entitlements"; sourceTree = "<group>"; };
 		EDFFF8EA27529C2500ED41FB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDFFF8ED27529C2E00ED41FB /* Snow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snow.swift; sourceTree = "<group>"; };
 		EDFFF8F027529C9900ED41FB /* Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		E12551BF27518AC8005B416E = {
 			isa = PBXGroup;
 			children = (
+				ED39BE502770001D0081D79D /* XmasParty (iOS).entitlements */,
 				E12551C427518AC8005B416E /* Shared */,
 				E12551D327518ACA005B416E /* macOS */,
 				E12551CD27518ACA005B416E /* Products */,
@@ -511,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "XmasParty (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9NG3C5HP77;
@@ -541,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "XmasParty (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9NG3C5HP77;

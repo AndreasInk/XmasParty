@@ -7,16 +7,25 @@
 
 import SwiftUI
 import PencilKit
+import SFSafeSymbols
 struct PictonaryView: View {
     @StateObject var pictonary = PictonaryManager()
-    @State var canvas = PKCanvasView()
+ 
     var body: some View {
         ZStack {
             if pictonary.pictonary.topics.count == pictonary.localBrain.teams.count && pictonary.pictonary.topics.count != 0 {
-                MyCanvas(canvasView: $canvas)
+                if pictonary.pictonary.currentTeamID == pictonary.yourTeam?.id {
+                    VStack {
+                        Text(pictonary.pictonary.topics[pictonary.pictonary.currentTeamID])
+                            .font(.Title)
+                    }
+                }
+                MyCanvas(canvasView: $pictonary.canvas)
+                
+                
             } else {
             
-                AssignRolesPictonaryView()
+                AssignRolesPictonaryView(pictonary: pictonary)
             
         }
     }
@@ -37,6 +46,8 @@ struct MyCanvas: UIViewRepresentable {
 
 struct AssignRolesPictonaryView: View {
     @State var text = ""
+    @ObservedObject var pictonary: PictonaryManager
+    @State var enteredThing = false
     var body: some View {
         ZStack {
             Background()
@@ -49,19 +60,31 @@ struct AssignRolesPictonaryView: View {
                 Spacer()
                 GroupBox {
                     VStack(spacing: 20) {
-                        Text("Write down a random character, event, or person. \n Do not say it out loud.")
+                        Text(enteredThing ? "Starting Soon..." : "Write down a random character, event, or person. \n Do not say it out loud." )
                             .multilineTextAlignment(.center)
                             .font(.XmasFont)
+                        if !enteredThing {
                         HStack {
                             XmasTextField(titleKey: "Santa", text: $text)
                             Button(action: {
-                                //randomize
-                                //text = random person
+                                text = pictonary.randomThing()
                             }) {
-                                Image(systemName: "dice.fill")
+                                Image(systemSymbol: .diceFill)
                                     .foregroundColor(.white)
                                 .font(.system(size: 32))
                             }
+                        }
+                        Button(action: {
+                            if text != "" {
+                            pictonary.pictonary.topics.append(text)
+                            enteredThing = true
+                            }
+                        }) {
+                            Label("Enter", systemSymbol: .plusCircleFill)
+                                .padding()
+                                .foregroundColor(.white)
+                                .font(.XmasFont)
+                        }
                         }
                     }
                     .padding()
