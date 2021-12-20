@@ -53,7 +53,8 @@ enum GameType: String, CaseIterable {
     case Trivia  = "Trivia"
     case Matching  = "Matching"
     case Pictonary  = "Pictonary"
-    case Music  = "Music"
+    case GuessWho  = "Guess Who"
+    
    
     
 }

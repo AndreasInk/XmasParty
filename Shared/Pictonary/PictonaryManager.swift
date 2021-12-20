@@ -46,8 +46,11 @@ class PictonaryManager: XmasManager {
     
     func changeTurn() {
         turnCount += 1
-        if turnCount % 2 == yourTeam?.id ?? 0 {
+        if turnCount == yourTeam?.id ?? 0 {
             pictonary.currentTeamID = yourTeam?.id ?? 0
+        }
+        if turnCount > localBrain.teams.count {
+            turnCount = 0
         }
     }
 }

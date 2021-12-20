@@ -7,7 +7,30 @@
 
 import SwiftUI
 
+struct GuessWhoView: View {
+    @StateObject var guessWho = GuessWhoManager()
+    var body: some View {
+        ZStack {
+            if guessWho.guessWho.topics.count == guessWho.localBrain.teams.count && guessWho.guessWho.topics.count != 0 {
+                if guessWho.guessWho.currentTeamID == guessWho.yourTeam?.id {
+                    VStack {
+                        Text(guessWho.guessWho.topics[guessWho.guessWho.currentTeamID])
+                            .font(.Title)
+                    }
+                }
+               
+                CurrentTurnGuessWhoView(guessWho: guessWho)
+                
+            } else {
+            
+                AssignRolesGuessWhoView(guessWho: guessWho)
+            
+        }
+            }
+        }
+}
 struct CurrentTurnGuessWhoView: View {
+    @ObservedObject var guessWho: GuessWhoManager
     var body: some View {
         ZStack {
             Background()
@@ -20,7 +43,7 @@ struct CurrentTurnGuessWhoView: View {
                 Spacer()
                 GroupBox {
                     VStack(spacing: 16) {
-                        Text("It's xy's turn")
+                        Text("It's \(guessWho.localBrain.teams[guessWho.guessWho.currentTeamID].name)'s turn")
                             .font(.XmasFont)
                             .foregroundColor(.secondary)
                         Text("Shrek")
@@ -33,7 +56,7 @@ struct CurrentTurnGuessWhoView: View {
                 .groupBoxStyle(XmasGroupBoxStyle())
                 .padding()
                 Button {
-                    //next
+                    guessWho.turnCount += 1
                 } label: {
                     Text("Next person")
                         .foregroundColor(.white)
@@ -51,6 +74,8 @@ struct CurrentTurnGuessWhoView: View {
 }
 
 struct AssignRolesGuessWhoView: View {
+    @ObservedObject var guessWho: GuessWhoManager
+    @State var enteredThing = false
     @State var text = ""
     var body: some View {
         ZStack {
@@ -67,16 +92,29 @@ struct AssignRolesGuessWhoView: View {
                         Text("Write down a random character. Do not say it out loud.")
                             .multilineTextAlignment(.center)
                             .font(.XmasFont)
+                        if !enteredThing {
                         HStack {
                             XmasTextField(titleKey: "Santa", text: $text)
                             Button(action: {
-                                //randomize
-                                //text = random person
+                                text = guessWho.randomThing()
                             }) {
-                                Image(systemName: "dice.fill")
+                                Image(systemSymbol: .diceFill)
                                     .foregroundColor(.white)
+                                    .padding()
                                 .font(.system(size: 32))
                             }
+                        }
+                        Button(action: {
+                            if text != "" {
+                                guessWho.guessWho.topics.append(text)
+                            enteredThing = true
+                            }
+                        }) {
+                            Label("Enter", systemSymbol: .plusCircleFill)
+                                .padding()
+                                .foregroundColor(.white)
+                                .font(.XmasFont)
+                        }
                         }
                     }
                     .padding()
@@ -89,11 +127,7 @@ struct AssignRolesGuessWhoView: View {
     }
 }
 
-struct GuessWho_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentTurnGuessWhoView()
-    }
-}
+
 
 struct XmasTextField: View {
     var titleKey: String

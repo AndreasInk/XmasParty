@@ -131,11 +131,12 @@ struct LobbyView: View {
                 EmptyView()
             case .Pictonary:
                 PictonaryView()
-            case .Music:
-                EmptyView()
+            
             case .Lobby:
                 LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
             case .Matching:
+                EmptyView()
+            case .GuessWho:
                 EmptyView()
             }
         }

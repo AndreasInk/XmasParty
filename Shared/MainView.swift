@@ -106,15 +106,15 @@ struct MainView: View {
                 switch(GameType(rawValue: game.trainingType) ?? .Lobby) {
                 case .Trivia:
                     EmptyView()
-                case .Puzzle:
-                    EmptyView()
+                case .GuessWho :
+                    GuessWhoView()
                 case .Pictonary:
                     PictonaryView()
-                case .Music:
-                    EmptyView()
                 case .Lobby:
                     LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
                 case .Matching:
+                    EmptyView()
+                case .Puzzle:
                     EmptyView()
                 }
             }
