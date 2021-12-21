@@ -10,14 +10,15 @@ import SpriteKit
 import GroupActivities
 import SFSafeSymbols
 
-let columns = [
-    GridItem(.flexible()),
-    GridItem(.flexible())
-]
-let columns2 = [
-    GridItem(.flexible()),
-    GridItem(.flexible()),
 
+let teamsColumns = [
+    GridItem(.flexible()),
+    GridItem(.flexible()),
+]
+
+let gamesColumns = [
+    GridItem(.flexible()),
+    GridItem(.flexible()),
 ]
 let cardWidth = UIScreen.main.bounds.size.width / 2 - 56
 
@@ -45,7 +46,7 @@ struct MainView: View {
                     }
                     
                 ScrollView {
-                    LazyVGrid(columns: columns2, spacing: 5) {
+                    LazyVGrid(columns: teamsColumns, spacing: 5) {
                         ForEach(xmas.localBrain.teamRows, id: \.id) { teams in
                     HStack {
                         ForEach(teams.teams, id: \.id) { team in
@@ -88,7 +89,7 @@ struct MainView: View {
                     LazyVStack(spacing: 16) {
                         HStack {
                         Text("Partyy")
-                                .foregroundColor(Color("Green"))
+                                .foregroundColor(.white)
                             Spacer()
                             Button {
                                 settingsSheetIsPresented = true
@@ -127,7 +128,7 @@ struct MainView: View {
                         }
                         .buttonStyle(.plain)
                         Spacer(minLength: 32)
-                        LazyVGrid(columns: columns, spacing: 20) {
+                        LazyVGrid(columns: gamesColumns, spacing: 20) {
                             ForEach(GameType.allCases, id: \.self) { item in
                                 if item != .Lobby {
                                     Button(action: {
@@ -159,9 +160,7 @@ struct MainView: View {
 //                LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
 //            })
             .sheet(item: $xmas.localBrain.trainingType) { game in
-                switch(GameType(rawValue: game.trainingType) ?? .Trivia) {
-                case .Trivia:
-                    EmptyView()
+                switch(GameType(rawValue: game.trainingType) ?? .GuessWho) {
                 case .GuessWho:
                     GuessWhoView(guessWho: xmas)
                         .frame(minWidth: 300, minHeight: 300)
@@ -171,10 +170,6 @@ struct MainView: View {
                 case .Lobby:
                     LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
                         .frame(minWidth: 300, minHeight: 300)
-                case .Matching:
-                    EmptyView()
-                case .Puzzle:
-                    EmptyView()
                 }
                    
             }
@@ -185,25 +180,11 @@ struct MainView: View {
 }
 
 struct Background: View {
-    var backgroundType: BackgroundType = .snow
     var body: some View {
-        let scene: SKScene = {
-        switch backgroundType {
-        case .snow:
-            return SnowFall()
-        case .bauble:
-            return BaubleFall()
-        }
-        }()
         ZStack {
-            switch backgroundType {
-            case .snow:
-                Color.XmasRed
-            case .bauble:
-                Color.XmasGreen
-            }
-        SpriteView(scene: scene, options: [.allowsTransparency])
-            .opacity(0.8)
+            Color.XmasRed
+            SpriteView(scene: SnowFall(), options: [.allowsTransparency])
+                .opacity(0.8)
         }
         .edgesIgnoringSafeArea(.all)
     }
@@ -214,22 +195,29 @@ struct XmasGroupBoxStyle: GroupBoxStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.content
             .padding()
-            .background(BlurView())
+            .background(.thinMaterial)
             .cornerRadius(16)
             .overlay(
-                GeometryReader { geometry in
-                    VStack(spacing: 0) {
-                        SnowPile()
-                            .frame(height: 16)
-                        Icicles()
-                            .frame(maxHeight: 10)
-                    }
-                    .frame(width: geometry.size.width - 30)
-                    .offset(x: 15, y: -16)
-                    .foregroundColor(.white)
-                    .padding(0)
+                VStack(spacing: 0) {
+                    SnowPile()
+                        .frame(height: 10)
+                    Icicles()
+                        .frame(maxHeight: 10)
+                    Spacer()
                 }
+                    .offset(y: -10)
+                    .padding(.horizontal, 12)
+                    .foregroundColor(.white)
             )
     }
 }
 
+
+struct GroupBoxView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroupBox {
+            Text("ABC")
+        }
+        .groupBoxStyle(XmasGroupBoxStyle())
+    }
+}

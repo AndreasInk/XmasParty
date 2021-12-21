@@ -20,7 +20,7 @@ class XmasManager: ObservableObject {
     
     @Published var groupSession: GroupSession<Xmas>?
     
-    @Published var mostVotedGame = GameType.Puzzle
+    @Published var mostVotedGame = GameType.GuessWho
     
     @Published var points = 0
     @Published var emojis = [String]()
@@ -57,7 +57,7 @@ class XmasManager: ObservableObject {
             localBrain.teams[i].isReady = true
             yourTeam =  localBrain.teams[i]
             if localBrain.teams.filter({$0.isReady}).count == localBrain.teams.count {
-                mostVotedGame = GameType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .Matching
+                mostVotedGame = GameType(rawValue: bigBrain.gameVotes.max { a, b in a.value < b.value }?.key ?? "") ?? .GuessWho
                 
                 sync(localBrain)
             }

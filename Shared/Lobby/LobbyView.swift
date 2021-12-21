@@ -125,17 +125,17 @@ struct LobbyView: View {
         }
         .popover(item: $xmas.localBrain.trainingType) { game in
             switch(GameType(rawValue: game.trainingType) ?? .Lobby) {
-            case .Trivia:
-                EmptyView()
-            case .Puzzle:
-                EmptyView()
+//            case .Trivia:
+//                EmptyView()
+//            case .Puzzle:
+//                EmptyView()
             case .Pictonary:
                // PictonaryView(pictonary: xmas as! PictonaryManager)
                 EmptyView()
             case .Lobby:
                 LobbyView(groupStateObserver: groupStateObserver, xmas: xmas, viewManager: viewManager)
-            case .Matching:
-                EmptyView()
+//            case .Matching:
+//                EmptyView()
             case .GuessWho:
                 EmptyView()
             }

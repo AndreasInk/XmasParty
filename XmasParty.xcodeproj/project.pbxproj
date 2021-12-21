@@ -60,8 +60,6 @@
 		EDFFF8EC27529C2500ED41FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8EA27529C2500ED41FB /* MainView.swift */; };
 		EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8ED27529C2E00ED41FB /* Snow.swift */; };
 		EDFFF8EF27529C2E00ED41FB /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8ED27529C2E00ED41FB /* Snow.swift */; };
-		EDFFF8F127529C9900ED41FB /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F027529C9900ED41FB /* Blur.swift */; };
-		EDFFF8F227529C9900ED41FB /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F027529C9900ED41FB /* Blur.swift */; };
 		EDFFF8F82752AC9500ED41FB /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F72752AC9500ED41FB /* MusicManager.swift */; };
 		EDFFF8F92752AC9500ED41FB /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF8F72752AC9500ED41FB /* MusicManager.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +95,6 @@
 		ED7C0C6C2770148400520905 /* GuessWho.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWho.swift; sourceTree = "<group>"; };
 		EDFFF8EA27529C2500ED41FB /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EDFFF8ED27529C2E00ED41FB /* Snow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snow.swift; sourceTree = "<group>"; };
-		EDFFF8F027529C9900ED41FB /* Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		EDFFF8F72752AC9500ED41FB /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +135,6 @@
 				ED39BE3B276FE55E0081D79D /* Ext */,
 				E125520727519275005B416E /* HomeView.swift */,
 				EDFFF8EA27529C2500ED41FB /* MainView.swift */,
-				EDFFF8F027529C9900ED41FB /* Blur.swift */,
 				EDFFF8F72752AC9500ED41FB /* MusicManager.swift */,
 				ED39BE4F276FF50F0081D79D /* GuessWho */,
 				ED39BE34276FE06A0081D79D /* Pictonary */,
@@ -365,7 +361,6 @@
 				E12551E727518BD2005B416E /* Xmas.swift in Sources */,
 				ED39BE3D276FE5700081D79D /* ColorExt.swift in Sources */,
 				E12551FE27519193005B416E /* PopButtonStyle.swift in Sources */,
-				EDFFF8F127529C9900ED41FB /* Blur.swift in Sources */,
 				EDFFF8EE27529C2E00ED41FB /* Snow.swift in Sources */,
 				E12551FB2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D527518ACA005B416E /* XmasPartyApp.swift in Sources */,
@@ -397,7 +392,6 @@
 				E12551E827518BD2005B416E /* Xmas.swift in Sources */,
 				ED39BE3E276FE5700081D79D /* ColorExt.swift in Sources */,
 				E12551FF27519193005B416E /* PopButtonStyle.swift in Sources */,
-				EDFFF8F227529C9900ED41FB /* Blur.swift in Sources */,
 				EDFFF8EF27529C2E00ED41FB /* Snow.swift in Sources */,
 				E12551FC2751915F005B416E /* TeamManager.swift in Sources */,
 				E12551D627518ACA005B416E /* XmasPartyApp.swift in Sources */,
@@ -528,12 +522,13 @@
 				CODE_SIGN_ENTITLEMENTS = "XmasParty (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9NG3C5HP77;
+				DEVELOPMENT_TEAM = AJN7UYMS5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -559,12 +554,13 @@
 				CODE_SIGN_ENTITLEMENTS = "XmasParty (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9NG3C5HP77;
+				DEVELOPMENT_TEAM = AJN7UYMS5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -592,7 +588,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9NG3C5HP77;
+				DEVELOPMENT_TEAM = AJN7UYMS5W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -620,7 +616,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9NG3C5HP77;
+				DEVELOPMENT_TEAM = AJN7UYMS5W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

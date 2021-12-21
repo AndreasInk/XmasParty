@@ -20,34 +20,13 @@ class SnowFall: SKScene {
     }
 }
 
-class BaubleFall: SKScene {
-    override func sceneDidLoad() {
-        size = UIScreen.main.bounds.size
-        scaleMode = .resizeFill
-        anchorPoint = CGPoint(x: 0.5, y: 1)
-        backgroundColor = .clear
-        let node = SKEmitterNode(fileNamed: "BaubleFall.sks")!
-        addChild(node)
-        node.particlePositionRange.dy = UIScreen.main.bounds.width
-    }
-}
-
-enum BackgroundType {
-    case snow, bauble
-}
-
 struct SnowPile: Shape {
     func path(in rect: CGRect) -> Path {
         let shape = UIBezierPath()
-        if !(rect.size.width.isZero || rect.size.height.isZero) {
         shape.move(to: CGPoint(x: rect.minX, y: rect.maxY))
-        let randomX = CGFloat.random(in: rect.maxX / 3..<rect.maxX / 1.5)
-        let randomY = rect.maxY - CGFloat.random(in: rect.maxY / 2..<rect.maxY)
-        
-//        let controlPointX = rect.maxX / 2
-//        let controlPointY = rect.maxY / 2
-        shape.addCurve(to: CGPoint(x: rect.maxX, y: rect.maxY), controlPoint1: CGPoint(x: randomX, y: randomY), controlPoint2: CGPoint(x: randomX, y: randomY))
-        }
+        let xPoint = rect.maxX / 3
+        let yPoint = rect.minY
+        shape.addCurve(to: CGPoint(x: rect.maxX, y: rect.maxY), controlPoint1: CGPoint(x: xPoint, y: yPoint), controlPoint2: CGPoint(x: xPoint, y: yPoint))
         shape.close()
         
         return Path(shape.cgPath).scaled(for: rect)
@@ -57,11 +36,9 @@ struct SnowPile: Shape {
 struct Icicle: Shape {
     func path(in rect: CGRect) -> Path {
         let shape = UIBezierPath()
-        if !(rect.size.width.isZero || rect.size.height.isZero) {
         shape.move(to: CGPoint(x: rect.minX, y: rect.minY))
             shape.addLine(to: CGPoint(x: rect.maxX / 2, y: rect.maxY))
             shape.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-        }
         shape.close()
         
         return Path(shape.cgPath).scaled(for: rect)
@@ -74,15 +51,15 @@ struct Icicles: View {
         GeometryReader { geometry in
             let width = geometry.size.width
             let height = geometry.size.height
-            
-            let iciclesThatFit = Int(floor(width / icicleWidth))
-            let icicleWidth = width / CGFloat(iciclesThatFit)
-            let randomHeight = height / 2..<height
-            HStack(spacing: 0) {
-                ForEach(0..<iciclesThatFit) { _ in
-                    Icicle()
-                        .frame(width: icicleWidth, height: CGFloat.random(in: randomHeight.isEmpty ? CGFloat(1)..<CGFloat(3) : randomHeight))
-                        .frame(maxHeight: .infinity, alignment: .top)
+            if !(width.isZero || height.isZero) {
+                let iciclesThatFit = Int(floor(width / icicleWidth))
+                let icicleWidth = width / CGFloat(iciclesThatFit)
+                HStack(spacing: 0) {
+                    ForEach(0..<iciclesThatFit) { icicleNumber in
+                        Icicle()
+                            .frame(maxWidth: icicleWidth, maxHeight: icicleNumber.isMultiple(of: 2) ? height : height * 0.75)
+                            .frame(maxHeight: .infinity, alignment: .top)
+                    }
                 }
             }
         }
