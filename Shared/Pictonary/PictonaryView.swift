@@ -10,7 +10,7 @@ import PencilKit
 import SFSafeSymbols
 struct PictonaryView: View {
     @ObservedObject var xmas: XmasManager
- 
+    
     var body: some View {
         ZStack {
             if xmas.pictonary.topics.count == xmas.localBrain.teams.count && xmas.pictonary.topics.count != 0 {
@@ -19,18 +19,49 @@ struct PictonaryView: View {
                         Text(xmas.pictonary.topics[xmas.pictonary.currentTeamID])
                             .font(.Title)
                     }
+                    MyCanvas(canvasView: $xmas.canvas)
                 }
-                MyCanvas(canvasView: $xmas.canvas)
                 
                 
             } else {
-            
-                AssignRolesPictonaryView(pictonary: xmas)
-            
+                
+//                AssignRolesPictonaryView(pictonary: xmas)
+                Background()
+                VStack(spacing: 10) {
+                    Text("Shrek")
+                        .font(.largeTitle.bold())
+                    HStack {
+                        Button {
+                            //undo
+                        } label: {
+                            Image(systemName: "arrow.uturn.left.circle")
+                        }
+                        Button {
+                            //redo
+                        } label: {
+                            Image(systemName: "arrow.uturn.right.circle")
+                        }
+                    }
+                    .font(.system(size: 32, weight: .medium))
+                    .opacity(0.8)
+                    MyCanvas(canvasView: $xmas.canvas)
+                        .cornerRadius(16)
+                        .padding()
+                    GroupBox {
+                        Button {
+                            //
+                        } label: {
+                            Text("Someone guessed it!")
+                        }
+
+                    }
+                    .groupBoxStyle(XmasGroupBoxStyle())
+                }
+                .padding(.top)
+                .buttonStyle(.plain)
+            }
         }
     }
-       
-}
 }
 
 struct MyCanvas: UIViewRepresentable {
@@ -39,6 +70,7 @@ struct MyCanvas: UIViewRepresentable {
     func makeUIView(context: Context) -> PKCanvasView {
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = PKInkingTool(.pen, color: .black, width: 15)
+        canvasView.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
         return canvasView
     }
 
